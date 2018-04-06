@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sean/course/CS61C-2015/week3/02/bit_ops.c
+
+/home/sean/course/CS61C-2015/week3/02/lfsr.c
+
+/home/sean/course/CS61C-2015/week3/02/vector-test.c
+stdio.h
+-
+stdlib.h
+-
+vector.h
+/home/sean/course/CS61C-2015/week3/02/vector.h
+
+/home/sean/course/CS61C-2015/week3/02/vector.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+vector.h
+/home/sean/course/CS61C-2015/week3/02/vector.h
+
+/home/sean/course/CS61C-2015/week3/02/vector.h
+sys/types.h
+-
+

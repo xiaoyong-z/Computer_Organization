@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/02.dir/bit_ops.c.o CMakeFiles/02.dir/lfsr.c.o CMakeFiles/02.dir/vector-test.c.o CMakeFiles/02.dir/vector.c.o  -o 02 

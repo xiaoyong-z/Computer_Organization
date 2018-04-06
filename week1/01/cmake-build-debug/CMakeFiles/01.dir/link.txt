@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/01.dir/eccentric.c.o CMakeFiles/01.dir/hello.c.o CMakeFiles/01.dir/ll_cycle.c.o CMakeFiles/01.dir/ll_equal.c.o  -o 01 

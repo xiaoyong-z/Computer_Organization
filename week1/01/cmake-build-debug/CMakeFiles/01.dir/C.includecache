@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sean/course/CS61C-2015/week1/01/eccentric.c
+
+/home/sean/course/CS61C-2015/week1/01/hello.c
+
+/home/sean/course/CS61C-2015/week1/01/ll_cycle.c
+
+/home/sean/course/CS61C-2015/week1/01/ll_equal.c
+stdio.h
+-
+
