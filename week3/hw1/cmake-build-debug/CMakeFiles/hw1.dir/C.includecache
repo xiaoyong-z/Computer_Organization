@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sean/course/hw1_starter-master/hw1/beargit.c
+stdio.h
+-
+string.h
+-
+unistd.h
+-
+sys/stat.h
+-
+beargit.h
+/home/sean/course/hw1_starter-master/hw1/beargit.h
+util.h
+/home/sean/course/hw1_starter-master/hw1/util.h
+
+/home/sean/course/hw1_starter-master/hw1/beargit.h
+
+/home/sean/course/hw1_starter-master/hw1/main.c
+stdio.h
+-
+string.h
+-
+unistd.h
+-
+sys/stat.h
+-
+beargit.h
+/home/sean/course/hw1_starter-master/hw1/beargit.h
+
+/home/sean/course/hw1_starter-master/hw1/util.h
+stdlib.h
+-
+
