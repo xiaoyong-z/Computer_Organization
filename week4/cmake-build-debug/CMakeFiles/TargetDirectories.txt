@@ -1,0 +1,3 @@
+/home/sean/course/CS61C-2015/week4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sean/course/CS61C-2015/week4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sean/course/CS61C-2015/week4/cmake-build-debug/CMakeFiles/week4.dir

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ ! -f "beargit.c" ]; then
+  echo "ERROR: Need to run "source init_test" from your source directory"
+  return
+fi
+
+if [ -d "test" ]; then
+  if [ -f "test/.BEARGIT_TEST_IGNORE_ME" ]; then
+    rm -rf test
+  else
+    echo "ERROR: A test directory already exists, but it was not created by make. Please manually delete or move this directory and try again."
+    return
+  fi
+fi
+
+make beargit
+
+mkdir test
+touch test/.BEARGIT_TEST_IGNORE_ME
+
+if [[ ! "$PATH" =~ "$PWD" ]]; then
+  export PATH=$PWD:$PATH
+fi
+
+cd test

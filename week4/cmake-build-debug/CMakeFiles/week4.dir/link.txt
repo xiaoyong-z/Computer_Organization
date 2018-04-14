@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/week4.dir/hw1/beargit.c.o CMakeFiles/week4.dir/hw1/cunittests.c.o CMakeFiles/week4.dir/hw1/main.c.o CMakeFiles/week4.dir/hw1/util.c.o  -o week4 
