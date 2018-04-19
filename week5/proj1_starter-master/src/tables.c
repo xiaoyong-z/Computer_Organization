@@ -55,6 +55,9 @@ SymbolTable* create_table(int mode) {
 
 /* Frees the given SymbolTable and all associated memory. */
 void free_table(SymbolTable* table) {
+    for (int i = 0; i < table -> len; i++){
+        free(table -> tbl[i].name);
+    }
     free(table -> tbl);
     free(table);
 }
@@ -80,7 +83,7 @@ int add_to_table(SymbolTable* table, const char* name, uint32_t addr) {
     }
     if (table -> mode){
         for(int i = 0; i < table -> len; i++){
-            if (strcmp(table -> tbl[i].name, name) == 0){
+            if (strcmp((table -> tbl[i]).name, name) == 0){
                 name_already_exists(name);
                 return -1;
             }
@@ -117,7 +120,12 @@ int add_to_table(SymbolTable* table, const char* name, uint32_t addr) {
         allocation_failed();
         return -1;
     }
-    temp -> name = (char *) name;
+    temp -> name = malloc(sizeof(name));
+    if (temp == NULL){
+        allocation_failed();
+        return -1;
+    }
+    strcpy(temp -> name, name);
     temp -> addr = addr;
     memcpy(&table -> tbl[table -> len], temp, sizeof(Symbol));
     temp = NULL;

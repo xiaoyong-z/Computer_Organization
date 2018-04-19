@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/sean/course/CS61C-2015/week5/proj1_starter-master/cmake
 include CMakeFiles/mytest.dir/progress.make
 
 CMakeFiles/mytest:
-	make -C CLION_EXE_DIR=/home/sean/course/CS61C-2015/week5/proj1_starter-master/cmake-build-debug
+	make -C /home/sean/course/CS61C-2015/week5/proj1_starter-master CLION_EXE_DIR=/home/sean/course/CS61C-2015/week5/proj1_starter-master/cmake-build-debug
 
 mytest: CMakeFiles/mytest
 mytest: CMakeFiles/mytest.dir/build.make

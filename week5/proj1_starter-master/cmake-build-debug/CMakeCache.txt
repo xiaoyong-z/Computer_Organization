@@ -22,7 +22,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //The CodeBlocks executable
-CMAKE_CODEBLOCKS_EXECUTABLE:FILEPATH=CMAKE_CODEBLOCKS_EXECUTABLE-NOTFOUND
+CMAKE_CODEBLOCKS_EXECUTABLE:FILEPATH=/usr/bin/codeblocks
 
 //Additional command line arguments when CodeBlocks invokes make.
 // Enter e.g. -j<some_number> to get parallel builds
@@ -193,6 +193,12 @@ ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
+
+//Value Computed by CMake
+mytest_BINARY_DIR:STATIC=/home/sean/course/CS61C-2015/week5/proj1_starter-master/cmake-build-debug
+
+//Value Computed by CMake
+mytest_SOURCE_DIR:STATIC=/home/sean/course/CS61C-2015/week5/proj1_starter-master
 
 //Value Computed by CMake
 proj1_starter_master_BINARY_DIR:STATIC=/home/sean/course/CS61C-2015/week5/proj1_starter-master/cmake-build-debug

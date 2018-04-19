@@ -1,0 +1,3 @@
+make assembler
+./assembler input/pseudo.s out/pseudo.int out/pseudo.out
+diff out/pseudo.out out/ref/pseudo_ref.out

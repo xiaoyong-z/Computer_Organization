@@ -9,6 +9,7 @@
 #include "translate_utils.h"
 
 void write_inst_string(FILE* output, const char* name, char** args, int num_args) {
+    printf("%s", args[num_args - 1]);
     fprintf(output, "%s", name);
     for (int i = 0; i < num_args; i++) {
         fprintf(output, " %s", args[i]);
