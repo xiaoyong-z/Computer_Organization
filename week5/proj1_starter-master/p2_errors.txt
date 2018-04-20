@@ -1,0 +1,3 @@
+make assembler
+./assembler input/p2_errors.s out/p2_errors.int out/p2_errors.out -log log/p2_errors.txt
+diff log/p2_errors.txt log/ref/p2_errors_ref.txt

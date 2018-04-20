@@ -63,6 +63,14 @@ int translate_num(long int* output, const char* str, long int lower_bound,
         return -1;
     }
     char* pEnd;
+    if (strcmp(str, "0x0") == 0){
+        *output = 0;
+        return 0;
+    }
+    if (strcmp(str, "0") == 0){
+        *output = 0;
+        return 0;
+    }
     long int value = strtol(str, &pEnd, 0);
     *output = value;
     if (value == 0)

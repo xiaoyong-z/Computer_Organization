@@ -26,8 +26,6 @@ int write_ori(uint8_t opcode, FILE* output, char** args, size_t num_args);
 
 int write_lui(uint8_t opcode, FILE* output, char** args, size_t num_args);
 
-int write_mem_u(uint8_t opcode, FILE* output, char** args, size_t num_args);
-
 int write_mem(uint8_t opcode, FILE* output, char** args, size_t num_args);
 
 int write_branch(uint8_t opcode, FILE* output, char** args, size_t num_args, 

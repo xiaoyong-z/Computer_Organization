@@ -1,0 +1,6 @@
+.text
+write_addiu_error : 9write_jump_error : 3write_ori_error : 13write_branch_error 3: 5write_addiu_error : 9
+.symbol
+4	label
+
+.relocation

@@ -1,0 +1,16 @@
+.text
+00e83025
+01200008
+0150502a
+3c0b007b
+82080000
+0c000000
+354b0abc
+write_addiu_error : 9write_ori_error : 131509fff6
+
+.symbol
+4	label
+32	l1
+
+.relocation
+20	label

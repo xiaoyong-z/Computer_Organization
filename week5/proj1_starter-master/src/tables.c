@@ -121,7 +121,7 @@ int add_to_table(SymbolTable* table, const char* name, uint32_t addr) {
         return -1;
     }
     temp -> name = malloc(sizeof(name));
-    if (temp == NULL){
+    if (temp -> name == NULL){
         allocation_failed();
         return -1;
     }

@@ -1,0 +1,3 @@
+make assembler
+./assembler input/imm.s out/imm.int out/imm.out
+diff out/imm.out out/ref/imm_ref.out

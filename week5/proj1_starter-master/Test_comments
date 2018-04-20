@@ -1,0 +1,3 @@
+make assembler
+./assembler input/comments.s out/comments.int out/comments.out
+diff out/comments.out out/ref/comments_ref.out

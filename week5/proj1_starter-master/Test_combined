@@ -1,0 +1,3 @@
+make assembler
+./assembler input/combined.s out/combined.int out/combined.out
+diff out/combined.out out/ref/combined_ref.out

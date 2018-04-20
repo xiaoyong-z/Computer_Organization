@@ -10,14 +10,14 @@
 
 const int MAX_ARGS = 3;
 const int BUF_SIZE = 1024;
-const char* IGNORE_CHARS = " \f\n\r\t\v,()";
+const char *IGNORE_CHARS = " \f\n\r\t\v,()";
 
 /*******************************
  * Helper Functions
  *******************************/
 
 /* You should not be calling this function yourself. */
-static void raise_label_error(uint32_t input_line, const char* label) {
+static void raise_label_error(uint32_t input_line, const char *label) {
     write_to_log("Error - invalid label at line %d: %s\n", input_line, label);
 }
 
@@ -29,7 +29,7 @@ static void raise_label_error(uint32_t input_line, const char* label) {
 
    EXTRA_ARG should contain the first extra argument encountered.
  */
-static void raise_extra_arg_error(uint32_t input_line, const char* extra_arg) {
+static void raise_extra_arg_error(uint32_t input_line, const char *extra_arg) {
     write_to_log("Error - extra argument at line %d: %s\n", input_line, extra_arg);
 }
 
@@ -39,16 +39,16 @@ static void raise_extra_arg_error(uint32_t input_line, const char* extra_arg) {
    INPUT_LINE is which line of the input file that the error occurred in. Note
    that the first line is line 1 and that empty lines are included in the count.
  */
-static void raise_inst_error(uint32_t input_line, const char* name, char** args,
-    int num_args) {
-    
+static void raise_inst_error(uint32_t input_line, const char *name, char **args,
+                             int num_args) {
+
     write_to_log("Error - invalid instruction at line %d: ", input_line);
     log_inst(name, args, num_args);
 }
 
 /* Truncates the string at the first occurrence of the '#' character. */
-static void skip_comment(char* str) {
-    char* comment_start = strchr(str, '#');
+static void skip_comment(char *str) {
+    char *comment_start = strchr(str, '#');
     if (comment_start) {
         *comment_start = '\0';
     }
@@ -70,9 +70,9 @@ static void skip_comment(char* str) {
     3b. STR ends in ':' and is a valid label. Addition to symbol table succeeds.
         Returns 1.
  */
-static int add_if_label(uint32_t input_line, char* str, uint32_t byte_offset,
-    SymbolTable* symtbl) {
-    
+static int add_if_label(uint32_t input_line, char *str, uint32_t byte_offset,
+                        SymbolTable *symtbl) {
+
     size_t len = strlen(str);
     if (str[len - 1] == ':') {
         str[len - 1] = '\0';
@@ -107,179 +107,127 @@ static int add_if_label(uint32_t input_line, char* str, uint32_t byte_offset,
     2. If the first token is not a label, treat it as the name of an instruction.
     3. Everything after the instruction name should be treated as arguments to
         that instruction. If there are more than MAX_ARGS arguments, call
-        raise_extra_arg_error() and pass in the first extra argument. Do not 
+        raise_extra_arg_error() and pass in the first extra argument. Do not
         write that instruction to the output file (eg. don't call write_pass_one())
-    4. Only one instruction should be present per line. You do not need to do 
-        anything extra to detect this - it should be handled by guideline 3. 
+    4. Only one instruction should be present per line. You do not need to do
+        anything extra to detect this - it should be handled by guideline 3.
     5. A line containing only a label is valid. The address of the label should
         be the byte offset of the next instruction, regardless of whether there
         is a next instruction or not.
 
    Just like in pass_two(), if the function encounters an error it should NOT
-   exit, but process the entire file and return -1. If no errors were encountered, 
+   exit, but process the entire file and return -1. If no errors were encountered,
    it should return 0.
  */
-//int pass_one(FILE* input, FILE* output, SymbolTable* symtbl) {
-//    /* YOUR CODE HERE */
-//    return -1;
-//}
-//
-///* Reads an intermediate file and translates it into machine code. You may assume:
-//    1. The input file contains no comments
-//    2. The input file contains no labels
-//    3. The input file contains at maximum one instruction per line
-//    4. All instructions have at maximum MAX_ARGS arguments
-//    5. The symbol table has been filled out already
-//
-//   If an error is reached, DO NOT EXIT the function. Keep translating the rest of
-//   the document, and at the end, return -1. Return 0 if no errors were encountered. */
-//int pass_two(FILE *input, FILE* output, SymbolTable* symtbl, SymbolTable* reltbl) {
-//    /* YOUR CODE HERE */
-//
-//    // Since we pass this buffer to strtok(), the chars here will GET CLOBBERED.
-//    char buf[BUF_SIZE];
-//    int line_number = 1;
-//    int offset = 0;
-//    // Store input line number / byte offset below. When should each be incremented?
-//    int error = 0;
-//    // First, read the next line into a buffer.
-//    while (fgets(buf, BUF_SIZE, input) != NULL) {
-//        char *pch;
-//        // Next, use strtok() to scan for next character. If there's nothing,
-//        // go to the next line.
-//        pch = strtok(buf, " ,.-");
-//        char *name = pch;
-//        if (name == NULL)
-//            continue;
-//        char *args[MAX_ARGS];
-//        int num_args = 0;
-//        pch = strtok(buf, " ,.-");
-//        while (pch != NULL) {
-//            // Parse for instruction arguments. You should use strtok() to tokenize
-//            // the rest of the line. Extra arguments should be filtered out in pass_one(),
-//            // so you don't need to worry about that here.
-//            args[num_args] = pch;
-//            num_args++;
-//        }
-//        if (translate_inst(output, name, args, num_args, offset, symtbl, reltbl) == -1){
-//            raise_inst_error(line_number, name, args, num_args);
-//            error = -1;
-//        }
-//        // Use translate_inst() to translate the instruction and write to output file.
-//        // If an error occurs, the instruction will not be written and you should call
-//        // raise_inst_error().
-//        offset += 4;
-//        line_number += 1;
-//        // Repeat until no more characters are left, and the return the correct return val
-//    }
-//    return error;
-//}
-
-int pass_one(FILE* input, FILE* output, SymbolTable* symtbl) {
+int pass_one(FILE *input, FILE *output, SymbolTable *symtbl) {
     char buf[BUF_SIZE];
-    uint32_t input_line = 0, byte_offset = 0;
-    int ret_code = 0, num_args;
-    char* next_word, *next_char, *args[MAX_ARGS];
-    char* following = strtok(buf, IGNORE_CHARS);
-
-    // Read lines and add to instructions
-    while(fgets(buf, BUF_SIZE, input)) {
-        num_args = 0;
-        skip_comment(buf); // Ignore comments
-        next_word = strtok(buf, IGNORE_CHARS);
-        next_char = strtok(NULL, IGNORE_CHARS);
-        if (next_char == NULL) {
+    char *name;
+    char *args[MAX_ARGS];
+    int ARGS = 0;
+    uint32_t line_number = 1;
+    uint32_t offset = 0;
+    int error = 0;
+    int final_error = 0;
+    while (fgets(buf, BUF_SIZE, input) != NULL) {
+        ARGS = 0;
+        skip_comment(buf);
+        char *pch;
+        pch = strtok(buf, IGNORE_CHARS);
+        if (pch == NULL) {
+            line_number += 1;
             continue;
         }
-        args[0] = next_char;
-        num_args += 1;
-        int check = add_if_label(input_line, next_word, byte_offset, symtbl);
-        if (check != 0) {
-            add_if_label(input_line, next_word, byte_offset, symtbl);
-            *following = *next_char;
-            if (num_args > MAX_ARGS) {
-                ret_code -= 1;
-                raise_extra_arg_error(input_line, args[MAX_ARGS]);
+        int retval = add_if_label(line_number, pch, offset, symtbl);
+        if (retval != 0) {
+            if ((pch = strtok(NULL, IGNORE_CHARS)) == NULL) {
+                line_number += 1;
+                continue;
+            } else {
+                name = pch;
             }
+        } else
+            name = pch;
+        while ((pch = strtok(NULL, IGNORE_CHARS)) != NULL) {
+            if (ARGS == MAX_ARGS) {
+                raise_extra_arg_error(line_number, pch);
+                final_error = 1;
+                error = 1;
+                break;
+            }
+            args[ARGS++] = pch;
+        }
+        if (error == 0) {
+            offset += 4 * write_pass_one(output, name, args, ARGS);
         } else {
-            following = next_word;
+            offset += 4;
+            error = 0;
         }
-        while (next_char != NULL) {
-            next_char = strtok(NULL, IGNORE_CHARS);
-            args[num_args] = next_char;
-            num_args++;
-        }
-        if (write_pass_one(output, following, args, num_args - 1) == 0) {
-            ret_code -= 1;
-            raise_inst_error(input_line, following, args, num_args);
-        }
-        byte_offset += 4;
-        input_line += 1;
+        line_number += 1;
+
     }
-    return ret_code;
+    if (final_error)
+        return -1;
+    else
+        return 0;
 }
+
 /* Reads an intermediate file and translates it into machine code. You may assume:
     1. The input file contains no comments
     2. The input file contains no labels
     3. The input file contains at maximum one instruction per line
     4. All instructions have at maximum MAX_ARGS arguments
     5. The symbol table has been filled out already
+
    If an error is reached, DO NOT EXIT the function. Keep translating the rest of
    the document, and at the end, return -1. Return 0 if no errors were encountered. */
 int pass_two(FILE *input, FILE* output, SymbolTable* symtbl, SymbolTable* reltbl) {
     /* YOUR CODE HERE */
-    int error_risen = 0;
-    /* Since we pass this buffer to strtok(), the characters in this buffer will
-       GET CLOBBERED. */
+
+    // Since we pass this buffer to strtok(), the chars here will GET CLOBBERED.
     char buf[BUF_SIZE];
+    uint32_t line_number = 1;
+    uint32_t offset = 0;
     // Store input line number / byte offset below. When should each be incremented?
-    uint32_t line_num = 1;       // Incremented when next line
-    uint32_t byte_offset = 0;    // Incremented by 4 with each line
-    char* args[MAX_ARGS];
-    int num_args = 0;
-    char* saved_copy = malloc(1);
-    while (fgets(buf, BUF_SIZE, input)) {
-        // First, read the next line into a buffer.
-        char* next_line = strtok(buf, IGNORE_CHARS);
-        saved_copy = realloc(saved_copy, strlen(next_line) + 1);
-        strcpy(saved_copy, next_line);
-        num_args = 0;
+    int error = 0;
+    // First, read the next line into a buffer.
+    while (fgets(buf, BUF_SIZE, input) != NULL) {
+        char *pch;
         // Next, use strtok() to scan for next character. If there's nothing,
         // go to the next line.
-        /* NULL argument = where it previously left off */
-        next_line = strtok(NULL, IGNORE_CHARS);
-        while (next_line) {
+        pch = strtok(buf, IGNORE_CHARS);
+        char *name = pch;
+        if (name == NULL)
+            continue;
+        char *args[MAX_ARGS];
+        size_t num_args = 0;
+        while ((pch = strtok(NULL, IGNORE_CHARS)) != NULL) {
             // Parse for instruction arguments. You should use strtok() to tokenize
             // the rest of the line. Extra arguments should be filtered out in pass_one(),
             // so you don't need to worry about that here.
-            /* Each token (seperate word portion), represents a part of the MIPS code */
-            args[num_args++] = next_line;
-            next_line = strtok(NULL, IGNORE_CHARS);
+            args[num_args++] = pch;
+        }
+        if (translate_inst(output, name, args, num_args, offset, symtbl, reltbl) == -1){
+            raise_inst_error(line_number, name, args, num_args);
+            error = -1;
         }
         // Use translate_inst() to translate the instruction and write to output file.
         // If an error occurs, the instruction will not be written and you should call
         // raise_inst_error().
-        int x = translate_inst(output, saved_copy, args, num_args, byte_offset, symtbl, reltbl);
-        if (x != 0) {
-            error_risen = -1;
-            raise_inst_error(line_num, saved_copy, args, num_args);
-        }
-        line_num += 1;
-        byte_offset += 4;
+        offset += 4;
+        line_number += 1;
+        // Repeat until no more characters are left, and the return the correct return val
     }
-    // Repeat until no more characters are left, and the return the correct return val
-    // Repeat is done above.
-    free(saved_copy);
-    return error_risen;
+    return error;
 }
+
 
 /*******************************
  * Do Not Modify Code Below
  *******************************/
 
-static int open_files(FILE** input, FILE** output, const char* input_name, 
-    const char* output_name) {
-    
+static int open_files(FILE **input, FILE **output, const char *input_name,
+                      const char *output_name) {
+
     *input = fopen(input_name, "r");
     if (!*input) {
         write_to_log("Error: unable to open input file: %s\n", input_name);
@@ -294,7 +242,7 @@ static int open_files(FILE** input, FILE** output, const char* input_name,
     return 0;
 }
 
-static void close_files(FILE* input, FILE* output) {
+static void close_files(FILE *input, FILE *output) {
     fclose(input);
     fclose(output);
 }
@@ -302,11 +250,11 @@ static void close_files(FILE* input, FILE* output) {
 /* Runs the two-pass assembler. Most of the actual work is done in pass_one()
    and pass_two().
  */
-int assemble(const char* in_name, const char* tmp_name, const char* out_name) {
+int assemble(const char *in_name, const char *tmp_name, const char *out_name) {
     FILE *src, *dst;
     int err = 0;
-    SymbolTable* symtbl = create_table(SYMTBL_UNIQUE_NAME);
-    SymbolTable* reltbl = create_table(SYMTBL_NON_UNIQUE);
+    SymbolTable *symtbl = create_table(SYMTBL_UNIQUE_NAME);
+    SymbolTable *reltbl = create_table(SYMTBL_NON_UNIQUE);
 
     if (in_name) {
         printf("Running pass one: %s -> %s\n", in_name, tmp_name);
@@ -334,7 +282,7 @@ int assemble(const char* in_name, const char* tmp_name, const char* out_name) {
         if (pass_two(src, dst, symtbl, reltbl) != 0) {
             err = 1;
         }
-        
+
         fprintf(dst, "\n.symbol\n");
         write_table(symtbl, dst);
 
@@ -343,7 +291,7 @@ int assemble(const char* in_name, const char* tmp_name, const char* out_name) {
 
         close_files(src, dst);
     }
-    
+
     free_table(symtbl);
     free_table(reltbl);
     return err;

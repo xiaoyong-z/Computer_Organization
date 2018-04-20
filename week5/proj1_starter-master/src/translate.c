@@ -42,14 +42,13 @@
  */
 unsigned write_pass_one(FILE *output, const char *name, char **args, int num_args) {
     if (strcmp(name, "li") == 0) {
-        printf(output, "ok\n");
         if (num_args != 2){
             return 0;
         }
         long int immediate;
         translate_num(&immediate, args[1], INT32_MIN, INT32_MAX);
-        if(immediate > 0 && immediate < UINT16_MAX){
-            fprintf(output, "addiu %s, %s, %s\n", args[0], "$zero", (char *) immediate);
+        if(immediate > INT16_MIN && immediate < INT16_MAX){
+            fprintf(output, "addiu %s %s %ld\n", args[0], "$0", immediate);
             return 1;
         }
         else{
@@ -60,18 +59,17 @@ unsigned write_pass_one(FILE *output, const char *name, char **args, int num_arg
             long int upper = immediate & 0xFFFF0000;
             upper = upper >> 16;
             long int lower = immediate & 0x0000FFFF;
-            fprintf(output, "lui %s, %s\n", args[0], (char *) upper);
-            fprintf(output, "ori %s, %s, %s\n", args[0], args[0], (char *) lower);
+            fprintf(output, "lui $at %ld\n",  upper);
+            fprintf(output, "ori %s $at %ld\n", args[0],  lower);
             free(new_args);
             return 2;
         }
     } else if (strcmp(name, "blt") == 0) {
-        fprintf(output, "ok\n");
         if (num_args != 3){
             return 0;
         }
-        fprintf(output, "slt $at, %s, %s\n", args[0], args[1]);
-        fprintf(output, "bne $zero, $at, %s\n", args[2]);
+        fprintf(output, "slt $at %s %s\n", args[0], args[1]);
+        fprintf(output, "bne $at $0 %s\n", args[2]);
         return 2;
     } else {
         write_inst_string(output, name, args, num_args);
@@ -107,15 +105,15 @@ int translate_inst(FILE *output, const char *name, char **args, size_t num_args,
     else if (strcmp(name, "sltu") == 0) return write_rtype(0x2b, output, args, num_args);
     else if (strcmp(name, "jr") == 0) return write_jr(0x8, output, args, num_args);
     else if (strcmp(name, "sll") == 0) return write_shift(0x00, output, args, num_args);
-    else if (strcmp(name, "addiu") == 0) return write_addiu(0x9, output, args, num_args);
-    else if (strcmp(name, "ori") == 0) return write_ori(0xd, output, args, num_args);
-    else if (strcmp(name, "lui") == 0) return write_lui(0xf, output, args, num_args);
+    else if (strcmp(name, "addiu") == 0) return write_addiu(0x9, output, args, num_args); //OK
+    else if (strcmp(name, "ori") == 0) return write_ori(0xd, output, args, num_args);   //OK
+    else if (strcmp(name, "lui") == 0) return write_lui(0xf, output, args, num_args);  //OK
     else if (strcmp(name, "lb") == 0) return write_mem(0x20, output, args, num_args);
-    else if (strcmp(name, "lbu") == 0) return write_mem_u(0x24, output, args, num_args);
+    else if (strcmp(name, "lbu") == 0) return write_mem(0x24, output, args, num_args);
     else if (strcmp(name, "lw") == 0) return write_mem(0x23, output, args, num_args);
     else if (strcmp(name, "sb") == 0) return write_mem(0x28, output, args, num_args);
     else if (strcmp(name, "sw") == 0) return write_mem(0x2b, output, args, num_args);
-    else if (strcmp(name, "beq") == 0) return write_branch(0x4, output, args, num_args, addr, symtbl);
+    else if (strcmp(name, "beq") == 0) return write_branch(0x4, output, args, num_args, addr, symtbl); //OK
     else if (strcmp(name, "bne") == 0) return write_branch(0x5, output, args, num_args, addr, symtbl);
     else if (strcmp(name, "j") == 0) return write_jump(0x2, output, args, num_args, addr, reltbl);
     else if (strcmp(name, "jal") == 0) return write_jump(0x3, output, args, num_args, addr, reltbl);
@@ -205,7 +203,7 @@ int write_addiu(uint8_t opcode, FILE *output, char **args, size_t num_args) {
     long int immediate;
     int rt = translate_reg(args[0]);
     int rs = translate_reg(args[1]);
-    int err = translate_num(&immediate, args[2], 0, 65535);
+    int err = translate_num(&immediate, args[2], INT16_MIN, INT16_MAX);
 
     if (err < 0 || rs < 0 || rt < 0) {
         fprintf(output, "write_addiu_error : %u", opcode);
@@ -227,7 +225,7 @@ int write_ori(uint8_t opcode, FILE *output, char **args, size_t num_args) {
     long int immediate;
     int rt = translate_reg(args[0]);
     int rs = translate_reg(args[1]);
-    int err = translate_num(&immediate, args[2], -32768, 32767);
+    int err = translate_num(&immediate, args[2], 0, UINT16_MAX);
 
     if (err < 0 || rt < 0 || rs < 0) {
         fprintf(output, "write_ori_error : %u", opcode);
@@ -246,7 +244,7 @@ int write_lui(uint8_t opcode, FILE *output, char **args, size_t num_args) {
 
     long int immediate;
     int rt = translate_reg(args[0]);
-    int err = translate_num(&immediate, args[1], -32768, 32767);
+    int err = translate_num(&immediate, args[1], 0, UINT16_MAX);
 
     if (err < 0 || rt < 0) {
         fprintf(output, "write_lui_error : %u", opcode);
@@ -258,27 +256,6 @@ int write_lui(uint8_t opcode, FILE *output, char **args, size_t num_args) {
 }
 
 
-int write_mem_u(uint8_t opcode, FILE *output, char **args, size_t num_args) {
-    if (num_args != 3) {
-        fprintf(output, "write_mem_U_error : %u", opcode);
-        return -1;
-    }
-
-    long int offset;
-
-    int rt = translate_reg(args[0]);
-    int rs = translate_reg(args[1]);
-    int err = translate_num(&offset, args[2], 0, 65535);
-
-    if (err < 0 || rt < 0 || rs < 0) {
-        fprintf(output, "write_mem_U_error : %u", opcode);
-        return -1;
-    }
-
-    uint32_t instruction = offset | rt << 16 | rs << 21 | opcode << 26;
-    write_inst_hex(output, instruction);
-    return 0;
-}
 
 
 int write_mem(uint8_t opcode, FILE *output, char **args, size_t num_args) {
@@ -308,30 +285,27 @@ int write_mem(uint8_t opcode, FILE *output, char **args, size_t num_args) {
 int write_branch(uint8_t opcode, FILE *output, char **args, size_t num_args,
                  uint32_t addr, SymbolTable *symtbl) {
     if (num_args != 3) {
-        fprintf(output, "write_branch_error : %u", opcode);
+        fprintf(output, "write_branch_error 1: %u", opcode);
         return -1;
     }
 
     if (!is_valid_label(args[2])) {
-        fprintf(output, "write_branch_error : %u", opcode);
+        fprintf(output, "write_branch_error 2: %u", opcode);
         return -1;
     }
 
     int rs = translate_reg(args[0]);
     int rt = translate_reg(args[1]);
-    int label_addr =  get_addr_for_symbol(symtbl, args[2]);
+    int64_t label_addr =  get_addr_for_symbol(symtbl, args[2]);
 
 
-    if (rs < 0 || rt < 0 || addr < 0) {
-        fprintf(output, "write_branch_error : %u", opcode);
+    if (rs < 0 || rt < 0 || label_addr < 0) {
+        fprintf(output, "write_branch_error 3: %u", opcode);
         return -1;
     }
+
 
     int32_t offset = label_addr - addr - 4;
-    if (offset % 4 != 0) {
-        fprintf(output, "write_branch_error : %u", opcode);
-        return -1;
-    }
     offset /= 4;
     offset &= 0xFFFF;
     uint32_t instruction = offset | rt << 16 | rs << 21 | opcode << 26;
