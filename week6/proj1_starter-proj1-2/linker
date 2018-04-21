@@ -1,0 +1,1 @@
+./mars.jar nc sm linker-src/linker.s pa $@

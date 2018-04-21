@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/proj1_starter_proj1_2.dir/src/tables.c.o CMakeFiles/proj1_starter_proj1_2.dir/src/translate.c.o CMakeFiles/proj1_starter_proj1_2.dir/src/translate_utils.c.o CMakeFiles/proj1_starter_proj1_2.dir/src/utils.c.o CMakeFiles/proj1_starter_proj1_2.dir/assembler.c.o CMakeFiles/proj1_starter_proj1_2.dir/test_assembler.c.o  -o proj1_starter_proj1_2 

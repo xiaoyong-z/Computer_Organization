@@ -1,0 +1,7 @@
+chmod u+x linker
+./linker link-in/linker1.out link-out/output1
+./linker link-in/linker2.out link-out/output2
+./linker link-in/linker3A.out link-in/linker3B.out link-out/output3
+diff link-out/output1 link-out/ref/output1_ref
+diff link-out/output2 link-out/ref/output2_ref
+diff link-out/output3 link-out/ref/output3_ref

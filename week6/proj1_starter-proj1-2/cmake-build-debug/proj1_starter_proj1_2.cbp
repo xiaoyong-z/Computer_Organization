@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="proj1_starter_proj1_2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="proj1_starter_proj1_2">
+				<Option output="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/proj1_starter_proj1_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 proj1_starter_proj1_2"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="proj1_starter_proj1_2/fast">
+				<Option output="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/proj1_starter_proj1_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 proj1_starter_proj1_2/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Makefile">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Mars4_5.jar">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Test_link">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/assembler.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/assembler.h">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/combined.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/comments.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/imm.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/labels.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/p1_errors.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/p2_errors.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/pseudo.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/input/simple.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-in/linker1.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-in/linker2.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-in/linker3A.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-in/linker3B.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-out/ref/output1_ref">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-out/ref/output2_ref">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/link-out/ref/output3_ref">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/file_utils.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/linker.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/linker_utils.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/parsetools.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/string.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-src/symbol_list.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-tests/test_core.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-tests/test_linker_utils.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-tests/test_parsetools.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-tests/test_string.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/linker-tests/test_symbol_list.s">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/log/ref/p1_errors_ref.txt">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/log/ref/p2_errors_ref.txt">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/combined_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/combined_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/comments_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/comments_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/imm_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/imm_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/labels_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/labels_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/pseduo_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/pseudo_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/pseudo_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/simple_ref.int">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/simple_ref.out">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/run-valgrind">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/tables.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/tables.h">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/translate.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/translate.h">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/translate_utils.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/translate_utils.h">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/utils.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/src/utils.h">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/test_assembler.c">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
