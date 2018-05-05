@@ -87,9 +87,6 @@
 		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Makefile">
 			<Option target="proj1_starter_proj1_2"/>
 		</Unit>
-		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Mars4_5.jar">
-			<Option target="proj1_starter_proj1_2"/>
-		</Unit>
 		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/Test_link">
 			<Option target="proj1_starter_proj1_2"/>
 		</Unit>
@@ -184,6 +181,9 @@
 			<Option target="proj1_starter_proj1_2"/>
 		</Unit>
 		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/log/ref/p2_errors_ref.txt">
+			<Option target="proj1_starter_proj1_2"/>
+		</Unit>
+		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/mars.jar">
 			<Option target="proj1_starter_proj1_2"/>
 		</Unit>
 		<Unit filename="/home/sean/course/CS61C-2015/week6/proj1_starter-proj1-2/out/ref/combined_ref.int">
