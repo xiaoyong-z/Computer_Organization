@@ -71,7 +71,7 @@ static int sum_vectorized_unrolled(int n, int *a)
     __m128i sum3 = _mm_setzero_si128();
     __m128i sum4 = _mm_setzero_si128();
     __m128i sum5 = _mm_setzero_si128();
-    for (int i = 0; i < n / 4 * 4; i += 16){
+    for (int i = 0; i < n / 16 * 16; i += 16){
         sum1 = _mm_add_epi32(sum1, _mm_loadu_si128((__m128i *)(a + i)));
         sum2 = _mm_add_epi32(sum2, _mm_loadu_si128((__m128i *)(a + i + 4)));
         sum3 = _mm_add_epi32(sum3, _mm_loadu_si128((__m128i *)(a + i + 8)));
@@ -84,7 +84,7 @@ static int sum_vectorized_unrolled(int n, int *a)
     for (int j = 0; j < 4; j++){
         result = result + sum_array[j];
     }
-    for (int i = n / 4 * 4; i < n; i++){
+    for (int i = n / 16 * 16; i < n; i++){
         result += a[i];
     }
     return result;
@@ -92,17 +92,17 @@ static int sum_vectorized_unrolled(int n, int *a)
 
 static int sum_vectorized(int n, int *a)
 {
-    int result = 0, i;
+    int result = 0;
     int sum_array[4] = {0, 0, 0, 0};
     __m128i sum = _mm_setzero_si128( );
-    for (i = 0; i + 4 < n; i += 4){
+    for (int i = 0; i < n / 4 * 4; i += 4){
         sum = _mm_add_epi32(sum, _mm_loadu_si128((__m128i *)(a + i)));
     }
     _mm_storeu_si128((__m128i *)sum_array, sum);
-    for (int j = 0; j < 4; j++){
-        result = result + sum_array[j];
+    for (int i = 0; i < 4; i++){
+        result = result + sum_array[i];
     }
-    for (; i < n; i++){
+    for (int i = n / 4 * 4; i < n; i++){
         result += a[i];
     }
     return result;
