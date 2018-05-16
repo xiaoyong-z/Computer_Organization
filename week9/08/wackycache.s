@@ -15,7 +15,7 @@ array:	.space	2048		# max array size specified in BYTES (DO NOT CHANGE)
 	
 	.text
 main:	li	$a0, 256	# array size in BYTES (power of 2 < array size)
-	li	$a1, 8		# step size  (power of 2 > 0)
+	li	$a1, 32	        # step size  (power of 2 > 0)
 	li	$a2, 2		# rep count
 	li	$a3, 1		# DO NOT CHANGE
 	
