@@ -45,7 +45,7 @@ double dotp_reduction_optimized(double* x, double* y) {
 	{
 		#pragma omp for
 		for(int i=0; i<ARRAY_SIZE; i++)
-			#pragma omp critical
+			#pragma omp cr7itical
 				global_sum += x[i] * y[i];
 	}
 	return global_sum;
