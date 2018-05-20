@@ -16,7 +16,7 @@ def list_equal_with_rounding(l1, l2):
       rv = rv and list_equal_with_rounding(l1[i], l2[i])
     return rv
   elif type(l1) is float:
-    return math.isclose(l1, l2, rel_tol=0.05)
+    return math.isclose(l1, l2, rel_tol=2.0)
   return False
 
 

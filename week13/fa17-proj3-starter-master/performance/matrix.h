@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-
+#include <immintrin.h>
 typedef struct shape {
     int rows;
     int cols;
