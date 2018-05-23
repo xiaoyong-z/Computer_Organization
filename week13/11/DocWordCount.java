@@ -76,7 +76,6 @@ public class DocWordCount {
                     word.set(matcher.group());  // matcher.group() return the matched word
                     context.write(word, ONE);  // emit(word, 1)
                 }
-
             }
             /* MODIFY THE ABOVE CODE */
         }

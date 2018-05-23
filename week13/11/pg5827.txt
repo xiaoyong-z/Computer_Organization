@@ -210,6 +210,7 @@ The collection of all physical objects is called 'matter'. Thus our two
 questions may be re-stated as follows: (1) Is there any such thing as
 matter? (2) If so, what is its nature?
 
+---END.OF.DOCUMENT---
 The philosopher who first brought prominently forward the reasons
 for regarding the immediate objects of our senses as not existing
 independently of us was Bishop Berkeley (1685-1753). His _Three
@@ -225,7 +226,7 @@ retains the merit of having shown that the existence of matter is
 capable of being denied without absurdity, and that if there are any
 things that exist independently of us they cannot be the immediate
 objects of our sensations.
-
+---END.OF.DOCUMENT---
 There are two different questions involved when we ask whether matter
 exists, and it is important to keep them clear. We commonly mean by
 'matter' something which is opposed to 'mind', something which we think
@@ -285,7 +286,7 @@ a sign of something existing independently of us, something differing,
 perhaps, completely from our sense-data, and yet to be regarded as
 causing those sense-data whenever we are in a suitable relation to the
 real table.
-
+---END.OF.DOCUMENT---
 Now obviously this point in which the philosophers are agreed--the view
 that there _is_ a real table, whatever its nature may be--is vitally
 important, and it will be worth while to consider what reasons there are
@@ -321,7 +322,7 @@ is no table at all. Philosophy, if it cannot _answer_ so many questions
 as we could wish, has at least the power of _asking_ questions which
 increase the interest of the world, and show the strangeness and wonder
 lying just below the surface even in the commonest things of daily life.
-
+---END.OF.DOCUMENT---
 
 
 CHAPTER II. THE EXISTENCE OF MATTER
@@ -416,7 +417,7 @@ the cloth would be suspended in empty air, resting, by a miracle, in
 the place where the table formerly was. This seems plainly absurd; but
 whoever wishes to become a philosopher must learn not to be frightened
 by absurdities.
-
+---END.OF.DOCUMENT---
 One great reason why it is felt that we must secure a physical object
 in addition to the sense-data, is that we want the same object for
 different people. When ten people are sitting round a dinner-table,
@@ -430,7 +431,7 @@ neutral objects, which can be in some sense known to many different
 people, there must be something over and above the private and
 particular sense-data which appear to various people. What reason, then,
 have we for believing that there are such public neutral objects?
-
+---END.OF.DOCUMENT---
 The first answer that naturally occurs to one is that, although
 different people may see the table slightly differently, still they all
 see more or less similar things when they look at the table, and
@@ -445,7 +446,7 @@ place at different times has similar sense-data, which makes us suppose
 that over and above the sense-data there is a permanent public object
 which underlies or causes the sense-data of various people at various
 times.
-
+---END.OF.DOCUMENT---
 Now in so far as the above considerations depend upon supposing that
 there are other people besides ourselves, they beg the very question at
 issue. Other people are represented to me by certain sense-data, such as

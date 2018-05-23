@@ -12,7 +12,7 @@ SOURCES = $(wildcard *.java)
 # Output JAR file
 TARGET = wc.jar
 # Extra JARs to have on the classpath when compiling.
-CLASSPATH = /home/ff/cs61c/hadoop/hadoop-core.jar:/home/ff/cs61c/hadoop/lib/commons-cli.jar
+CLASSPATH = /usr/local/hadoop/hadoop-core.jar:/usr/local/hadoop/share/hadoop/common/lib/commons-cli-1.2.jar
 # javac command to use
 JAVAC = javac -g -deprecation -cp $(CLASSPATH)
 # jar command to use
